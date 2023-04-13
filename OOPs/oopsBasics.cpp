@@ -14,12 +14,12 @@ class   Animal
     //Functions or Properties--
     void eat()
     {
-        cout <<"Eating" <<endl;
+        cout <<"Eating : " <<endl;
     }
 
     void sleep()
     {
-        cout <<"Sleeping" <<endl;
+        cout <<"Sleeping :" <<endl;
     }
 
 
