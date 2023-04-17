@@ -52,9 +52,9 @@ int k = s;
 int mergeSort(int *arr , int s , int e)
 {
     //Base Case--
-    if(s >= e)
-    return ;
     int inv = 0;
+    if(s >= e)
+    return inv;
     int mid = s + (e-s)/2;
     //Left array--
     inv += mergeSort(arr , s , mid);
