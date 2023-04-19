@@ -39,11 +39,13 @@ int exponentialSearch(vector <int> arr , int target)
         return 0;
     }
     int i = 1;
-    while(i < n && arr[i] <= target)
-    {
+    int j = 0;
+    while(arr[i] <= target)
+    {    
+        j = i;
          i = i*2;
     }
-    int ans = binarySearch(arr , i/2 , min(i , n-1) , target);
+    int ans = binarySearch(arr , j , min(i , n-1) , target);
     return ans;
 }
 int main(int argc, char const *argv[])
