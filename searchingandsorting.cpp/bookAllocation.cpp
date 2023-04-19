@@ -1,51 +1,49 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-bool isPossible(vector <int> arr , int  m , int n , int mid)
+bool isPossible(int mid , vector <int> arr , int n, int m)
 {
-    int studentCount = 1;
-    int pageSum = 0;
+  int stdcount = 1;
+  int pageSum = 0;
   for(int i = 0; i<n ; i++)
   {
-    if(arr[i] + pageSum <= mid)
+    if(pageSum + arr[i] <= mid)
     {
-        pageSum += arr[i];
+      pageSum += arr[i];
     }
     else
     {
-        studentCount++;
-        if( studentCount > m || arr[i] > mid )
-        {
-            return false ;
-        }
-        pageSum = arr[i];
+      stdcount++;
+      if(stdcount > m || arr[i] > mid)
+      {
+        return false;
+      }
     }
   }
   return true;
 }
-int findAns(vector <int> arr ,int m , int n)
+int findAns(vector <int> arr , int m , int n)
 {
-  int start = 0;
-  int sum = 0;
-  int ans = -1;
-  for(int i = 0 ; i<n; i++)
+  int s = 0;
+  int e = 0;
+  int ans;
+  for(int i = 0 ; i<n ; i++)
   {
-    sum += arr[i];
+    e += arr[i];
   }
-  int end = sum;
-  int mid = start + (end - start)/2;
-  while(start <= end)
+  int mid = s + (e-s)/2;
+  while(s<=e)
   {
-    if(isPossible(arr , m , n , mid))
+    if(isPossible(mid , arr , n , m))
     {
           ans = mid;
-          end = mid - 1;
+          e = mid - 1;
     }
     else
     {
-        start = mid +1 ;
+      s = mid + 1;
     }
-    mid = start + (end - start)/2;
+     mid = s + (e-s)/2;
   }
   return ans;
 }
