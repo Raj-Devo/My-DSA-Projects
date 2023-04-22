@@ -4,54 +4,55 @@
 using namespace std;
 bool isPossible(vector <int> arr , int n , int m , int mid)
 {
-        int pCount = 0;
-        for(int i = 0; i<n ; i++)
+        int pCount = 0
+        ;
+        for(int i = 0 ; i<n ; i++)
         {
-            int Rank = arr[i];
-        int timeTaken = 0;
-        int j = 1;
-        while(1)
-        {
-            if(timeTaken + j*Rank <= mid)
+            int time = 0;
+            int j = 1;
+            int rank = arr[i];
+            while(1)
             {
-                pCount++;
-                timeTaken += j*Rank;
-                j++;
-            }
-            else
-            {
-                break;
+                if(j*rank + time  <= mid)
+                {
+                    time += j*rank;
+                    pCount++;
+                    j++;
+                }
+                else
+                {
+                    break;
+                }
             }
         }
-        if(pCount >= m)
+        if(pCount>= m)
         {
             return true;
         }
-        }
-        return false ;
+        return false;
 }
 int findAns(vector <int> arr , int n , int m)
 {
-    int start = 0;
-    int sum = 0;
-    int highestRank = *max_element(arr.begin() , arr.end());
-     int end = highestRank * ( m * (m+1) / 2);
-    int mid = start + (end - start)/2;
-    int ans = -1;
-    while(start <= end)
+   int s = 0;
+   sort(arr.begin() , arr.end());
+   int highestRank = arr[n-1];
+   int e = highestRank* (n*(n+1)/2);
+   int mid = s +(e-s)/2;
+   int ans = -1;
+   while(s <= e)
+   {
+    if(isPossible( arr , n , m , mid))
     {
-        if(isPossible(arr , n , m ,mid))
-        {
-           ans = mid;
-           end = mid -1;
-        }
-        else
-        {
-            start = mid + 1;
-        }
-         mid = start + (end - start)/2;
+        ans = mid;
+        e = mid - 1;
     }
-    return ans;
+    else
+    {
+        s = mid + 1;
+    }
+     mid = s + (e-s)/2;
+   }
+      return ans;
 }
 int main(int argc, char const *argv[])
 {
