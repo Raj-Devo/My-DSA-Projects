@@ -5,7 +5,7 @@ int* solve()
     int a = 5;
     int* p = &a;
     cout <<p <<endl;
-    return p;
+    return p ;
 }
 int main(int argc, char const *argv[])
 {
