@@ -218,7 +218,7 @@ int main() {
         insertAtHead(head, tail,50);
         insertAtHead(head, tail,60);
         insertAtHead(head,tail, 90);
-        insertAtTail(head, tail, 77);
+        // insertAtTail(head, tail, 77);
 
         print(head);
         cout << endl;
@@ -235,15 +235,15 @@ int main() {
        // deleteNode(9, head, tail);
         // cout << endl;
         // print(head);
-         cout << endl;
+        //  cout << endl;
 
-        Node* prev = NULL;
-        Node* curr = head;
-        cout << "printing reverse list" << endl;
-        head = reverseusingRecursion(prev, curr);
-        cout << endl;
-        print(head);
-        cout << endl;
+        // Node* prev = NULL;
+        // Node* curr = head;
+        // cout << "printing reverse list" << endl;
+        // head = reverseusingRecursion(prev, curr);
+        // cout << endl;
+        // print(head);
+        // cout << endl;
 
         return 0;
 }
